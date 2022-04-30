@@ -29,10 +29,11 @@ cd y-websocket-with-redis
 ```
 
 ## 環境変数設定
+下記を環境に合わせて設定して下さい。
 ```
-export GCP_PROJECT=gleaming-motif-742
-export GCP_REGION=asia-northeast1
-export NETWORK=default
+export GCP_PROJECT=<gcpのproject idを設定して下さい>
+export GCP_REGION=<asia-northeast1など、regionを設定して下さい>
+export NETWORK=<vcp名を設定して下さい>
 ```
 
 ## redis作成
