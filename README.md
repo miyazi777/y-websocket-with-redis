@@ -1,5 +1,5 @@
 # 概要
-y-websocketがそのままの状態ではy-redisと連携していなかった為、levelDBとの接続部分をy-redisに変更したバージョンです。
+y-websocketがそのままの状態ではy-redisと連携していなかった為、levelDBとの接続部分をy-redisに変更したバージョンです。<br>
 元のリポジトリ
 https://github.com/yjs/y-websocket
 
@@ -21,7 +21,7 @@ docker-compose up -d
 docker-compose stop
 ```
 
-# clour runへのデプロイ 
+# GCP cloud runへのデプロイ 
 ## git clone
 ```
 git clone https://github.com/miyazi777/y-websocket-with-redis
