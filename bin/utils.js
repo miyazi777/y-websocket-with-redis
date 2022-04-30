@@ -26,25 +26,20 @@ const persistenceDir = process.env.YPERSISTENCE
 /**
  * @type {{bindState: function(string,WSSharedDoc):void, writeState:function(string,WSSharedDoc):Promise<any>, provider: any}|null}
  */
-let persistence = null
-if (typeof persistenceDir === 'string') {
-  console.info('Persisting documents to "' + persistenceDir + '"')
-  // @ts-ignore
-  const LeveldbPersistence = require('y-leveldb').LeveldbPersistence
-  const ldb = new LeveldbPersistence(persistenceDir)
-  persistence = {
-    provider: ldb,
-    bindState: async (docName, ydoc) => {
-      const persistedYdoc = await ldb.getYDoc(docName)
-      const newUpdates = Y.encodeStateAsUpdate(ydoc)
-      ldb.storeUpdate(docName, newUpdates)
-      Y.applyUpdate(ydoc, Y.encodeStateAsUpdate(persistedYdoc))
-      ydoc.on('update', update => {
-        ldb.storeUpdate(docName, update)
-      })
-    },
-    writeState: async (docName, ydoc) => {}
-  }
+
+const redisHost = process.env.REDIS_HOST || '127.0.0.1'
+const redisPort = process.env.REDIS_PORT|| 6379 
+const redisDb = process.env.REDIS_DB || 1 
+const RedisPersistence = require('y-redis').RedisPersistence
+const redisOps = {host: redisHost, port: redisPort, db: redisDb}
+console.log('redis setting : ', redisOps);
+let rp = new RedisPersistence({redisOpts: redisOps });
+let persistence = {
+  provider: rp,
+  bindState: async (docName, ydoc) => {
+    rp.bindState(docName, ydoc);
+  },
+  writeState: async (docName, ydoc) => {}
 }
 
 /**
