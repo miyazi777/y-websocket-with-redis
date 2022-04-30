@@ -1,0 +1,16 @@
+version: '3'
+services:
+  y-websocket-redis:
+    build: .
+    stdin_open: true
+    tty: true
+    ports:
+      - 1234:1234
+    depends_on:
+      - redis
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - "./data/redis:/data"
