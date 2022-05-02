@@ -3,6 +3,11 @@ y-websocketがそのままの状態ではy-redisと連携していなかった�
 元のリポジトリ
 https://github.com/yjs/y-websocket
 
+また、動作検証に使えるクライアントアプリはこちらになります。
+このクライアントアプリで動作検証を行う際にはリンク先の「y-websocketサーバの起動」の起動手順を下記のものに変更して下さい。
+https://github.com/miyazi777/tiptap-yjs-sample
+
+
 # ローカルでの動作確認
 ## git clone
 ```
