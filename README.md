@@ -2,9 +2,10 @@
 y-websocketがそのままの状態ではy-redisと連携していなかった為、levelDBとの接続部分をy-redisに変更したバージョンです。<br>
 元のリポジトリ
 https://github.com/yjs/y-websocket
-
-また、動作検証に使えるクライアントアプリはこちらになります。
-このクライアントアプリで動作検証を行う際にはリンク先の「y-websocketサーバの起動」の起動手順を下記のものに変更して下さい。
+<br>
+<br>
+また、動作検証に使えるクライアントアプリはこちらになります。<br>
+このクライアントアプリで動作検証を行う際にはリンク先の「y-websocketサーバの起動」の起動手順を下記のものに変更して下さい。<br>
 https://github.com/miyazi777/tiptap-yjs-sample
 
 
